@@ -195,10 +195,10 @@ func (fe *frontendServer) viewCartHandler(w http.ResponseWriter, r *http.Request
 	}
 	
 	var (
-		int loopCount
-		int num_recommendations
-		[]*pb.Product recommendations
-	)
+		loopCount
+		num_recommendations
+		recommendations
+	    )
 	for num_recommendations <= 4 {
 		if loopCount > 3 { break } //only attempt 3 times to get more results
 		recommendations, err = fe.getRecommendations(r.Context(), sessionID(r), cartIDs(cart))	
