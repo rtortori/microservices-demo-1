@@ -193,11 +193,15 @@ func (fe *frontendServer) viewCartHandler(w http.ResponseWriter, r *http.Request
 		renderHTTPError(log, r, w, errors.Wrap(err, "could not retrieve cart"), http.StatusInternalServerError)
 		return
 	}
-	loopCount := 0
-	num_recommendations := 0
+	
+	var (
+		int loopCount
+		int num_recommendations
+		[]*pb.Product recommendations
+	)
 	for num_recommendations <= 4 {
 		if loopCount > 3 { break } //only attempt 3 times to get more results
-		recommendations, err := fe.getRecommendations(r.Context(), sessionID(r), cartIDs(cart))	
+		recommendations, err = fe.getRecommendations(r.Context(), sessionID(r), cartIDs(cart))	
 		if err != nil {
 			renderHTTPError(log, r, w, errors.Wrap(err, "failed to get product recommendations"), http.StatusInternalServerError)
 			return
