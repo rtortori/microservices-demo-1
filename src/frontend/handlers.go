@@ -203,7 +203,7 @@ func (fe *frontendServer) viewCartHandler(w http.ResponseWriter, r *http.Request
 			renderHTTPError(log, r, w, errors.Wrap(err, "failed to get product recommendations"), http.StatusInternalServerError)
 			return
 		}
-		loopCount += loopCount
+		loopCount++
 	}	
 
 	shippingCost, err := fe.getShippingQuote(r.Context(), cart, currentCurrency(r))
