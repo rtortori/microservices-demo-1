@@ -39,7 +39,6 @@ logger = getJSONLogger('recommendationservice-server')
 class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
     def ListRecommendations(self, request, context):
         max_responses = 5
-        time.sleep(1)
         # fetch list of products from product catalog stub
         cat_response = product_catalog_stub.ListProducts(demo_pb2.Empty())
         product_ids = [x.id for x in cat_response.products]
@@ -54,6 +53,7 @@ class RecommendationService(demo_pb2_grpc.RecommendationServiceServicer):
         # build and return response
         response = demo_pb2.ListRecommendationsResponse()
         response.product_ids.extend(prod_list)
+        time.sleep(0.5)
         return response
 
     def Check(self, request, context):
