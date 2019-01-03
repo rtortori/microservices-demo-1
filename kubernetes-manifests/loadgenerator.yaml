@@ -38,7 +38,7 @@ spec:
           value: "frontend:80"
       containers:
       - name: main
-        image: loadgenerator
+        image: gcr.io/accl-19-dev/loadgenerator:accl-demo
         env:
         - name: FRONTEND_ADDR
           value: "frontend:80"

@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: frontend
+          image: gcr.io/accl-19-dev/frontend:accl-demo
           ports:
           - containerPort: 8080
           readinessProbe:
