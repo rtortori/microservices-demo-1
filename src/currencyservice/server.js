@@ -134,7 +134,7 @@ function convert (call, callback) {
       // Convert: from_currency --> EUR
       const from = request.from;
       const euros = _carry({
-        units: from.units / data[from.currency_code],
+        units: from.units / data[from.units],
         nanos: from.nanos / data[from.currency_code]
       });
 
