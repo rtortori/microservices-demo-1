@@ -149,9 +149,12 @@ function convert (call, callback) {
       result.units = Math.floor(result.units);
       result.nanos = Math.floor(result.nanos);
       result.currency_code = request.to_code;
-
-      logger.info(`conversion request successful`);
-      callback(null, result);
+      if (result.units > 0) { 
+        logger.info(`conversion request successful`);
+        callback(null, result);
+      } else {
+        throw new Error('Conversion is Zero');
+      }
     });
   } catch (err) {
     logger.error(`conversion request failed: ${err}`);
