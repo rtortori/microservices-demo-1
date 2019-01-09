@@ -59,7 +59,7 @@ public class AdService {
 
   private static final Tracer tracer = Tracing.getTracer();
 
-  private int MAX_ADS_TO_SERVE = 0;
+  private int MAX_ADS_TO_SERVE = 2;
   private Server server;
   private HealthStatusManager healthMgr;
 
