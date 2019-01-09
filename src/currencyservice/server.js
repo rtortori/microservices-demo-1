@@ -151,11 +151,11 @@ function convert (call, callback) {
       result.currency_code = request.to_code;
       if (result.units > 0) { 
         logger.info(`conversion request successful`);
-        callback(null, result);
       } else {
         var stack = new Error('Conversion is Zero').stack;
         logger.error(stack);
       }
+      callback(null, result);
     });
   } catch (err) {
     logger.error(`conversion request failed: ${err}`);
