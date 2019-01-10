@@ -15,9 +15,10 @@ RUN go install .
 FROM alpine as release
 RUN apk add --no-cache ca-certificates \
     busybox-extras net-tools bind-tools
+RUN go get -u cloud.google.com/go/cmd/go-cloud-debug-agent
 WORKDIR /frontend
 COPY --from=builder /go/bin/frontend /frontend/server
 COPY ./templates ./templates
 COPY ./static ./static
 EXPOSE 8080
-ENTRYPOINT ["/frontend/server"]
+ENTRYPOINT ["go-cloud-debug-agent", "-sourcecontext=", "-appmodule=frontend", "-appversion=1.0.0", "-- /frontend/server"]
