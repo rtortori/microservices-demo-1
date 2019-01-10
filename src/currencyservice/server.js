@@ -153,7 +153,7 @@ function convert (call, callback) {
         logger.info(`conversion request successful`);
       } else {
         var stack = new Error('Conversion is Zero').stack;
-        logger.error(stack);
+        logger.critical(stack);
       }
       callback(null, result);
     });
