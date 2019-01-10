@@ -15,6 +15,7 @@ RUN go install .
 FROM golang:1.10-alpine as release
 RUN apk add --no-cache ca-certificates \
     busybox-extras net-tools bind-tools
+RUN apk add --no-cache ca-certificates git
 RUN go get -u cloud.google.com/go/cmd/go-cloud-debug-agent
 WORKDIR /frontend
 COPY --from=builder /go/bin/frontend /frontend/server
