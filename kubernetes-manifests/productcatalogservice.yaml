@@ -25,7 +25,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/accl-19-dev/productcatalogservice:accl-demo
+        image: productcatalogservice
         ports:
         - containerPort: 3550
         readinessProbe:

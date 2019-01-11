@@ -25,7 +25,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/accl-19-dev/emailservice:accl-demo
+        image: emailservice
         ports:
         - containerPort: 8080
         readinessProbe:

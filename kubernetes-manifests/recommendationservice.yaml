@@ -25,7 +25,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/accl-19-dev/recommendationservice:accl-demo
+        image: recommendationservice
         ports:
         - containerPort: 8080
         readinessProbe:
