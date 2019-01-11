@@ -24,7 +24,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: checkoutservice
+          image: gcr.io/accl-19-dev/checkoutservice:accl-demo
           ports:
           - containerPort: 5050
           readinessProbe:

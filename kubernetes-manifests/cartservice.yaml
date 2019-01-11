@@ -25,7 +25,7 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: cartservice
+        image: gcr.io/accl-19-dev/cartservice:accl-demo
         ports:
         - containerPort: 7070
         env:
