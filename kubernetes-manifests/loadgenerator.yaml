@@ -31,7 +31,7 @@ spec:
         command: ['sh', '-c', 'set -x;  apk add --no-cache curl; 
           until timeout -t 2 curl -f "http://${FRONTEND_ADDR}"; do 
             echo "waiting for http://${FRONTEND_ADDR}"; 
-            sleep 2;
+            sleep 20;
           done;']
         env:
         - name: FRONTEND_ADDR
@@ -43,7 +43,7 @@ spec:
         - name: FRONTEND_ADDR
           value: "frontend:80"
         - name: USERS
-          value: "10"
+          value: "5"
         resources:
           requests:
             cpu: 300m

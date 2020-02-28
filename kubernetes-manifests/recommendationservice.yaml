@@ -25,7 +25,8 @@ spec:
       terminationGracePeriodSeconds: 5
       containers:
       - name: server
-        image: gcr.io/accl-19-dev/recommendationservice:accl-demo
+        image: gcr.io/accl-19-dev/recommendationservice:rel013019
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         readinessProbe:
@@ -41,10 +42,10 @@ spec:
           value: "productcatalogservice:3550"
         resources:
           requests:
-            cpu: 100m
+            cpu: 400m
             memory: 220Mi
           limits:
-            cpu: 200m
+            cpu: 600m
             memory: 450Mi
 ---
 apiVersion: v1
