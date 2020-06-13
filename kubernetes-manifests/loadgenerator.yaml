@@ -17,11 +17,11 @@ kind: Deployment
 metadata:
   name: loadgenerator
 spec:
+  selector:
+    matchLabels:
+      app: loadgenerator
   replicas: 1
   template:
-    selector:
-      matchLabels:
-        app: loadgenerator
     metadata:
       labels:
         app: loadgenerator

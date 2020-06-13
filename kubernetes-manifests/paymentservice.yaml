@@ -17,10 +17,10 @@ kind: Deployment
 metadata:
   name: paymentservice
 spec:
+  selector:
+    matchLabels:
+      app: paymentservice
   template:
-    selector:
-      matchLabels:
-        app: paymentservice
     metadata:
       labels:
         app: paymentservice
